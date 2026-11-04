@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Sparkles, Music, ArrowDown } from 'lucide-react';
 import charBoyPng from '../assets/characters/2d1.png';
@@ -11,6 +11,18 @@ const revealTransition = (delay = 0) => ({
 });
 
 export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter }) {
+  const [characterHopKey, setCharacterHopKey] = useState(0);
+
+  const handleOpenAndAnimate = () => {
+    setCharacterHopKey((prev) => prev + 1);
+    onOpenLetter();
+  };
+
+  const handleToggleAndAnimate = () => {
+    setCharacterHopKey((prev) => prev + 1);
+    onToggleLetter();
+  };
+
   return (
     <section
       id="surat"
@@ -94,7 +106,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
             {!isLetterOpen ? (
               <button
                 type="button"
-                onClick={onOpenLetter}
+                onClick={handleOpenAndAnimate}
                 className="inline-flex items-center gap-3 bg-[#f6e2b8] hover:bg-[#faeccf] text-[#090a10] font-semibold text-[17px] px-7 py-4 cursor-pointer transition-transform active:scale-98"
               >
                 <Heart className="w-5 h-5 fill-[#090a10]" />
@@ -132,9 +144,39 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
             className="relative w-full max-w-[560px] bg-[#11131d] p-6 md:p-8 flex flex-col items-center"
           >
             {/* Character Duo Stage */}
-            <div className="relative w-full min-h-[290px] md:min-h-[330px] flex items-end justify-center gap-3 md:gap-6">
-              {/* Boy Character (2d1.png) — LCP Candidate with fetchpriority="high" */}
-              <div className="flex flex-col items-center">
+            <div
+              onClick={() => {
+                if (isLetterOpen) setCharacterHopKey((prev) => prev + 1);
+              }}
+              className="relative w-full min-h-[290px] md:min-h-[330px] flex items-end justify-center gap-2 md:gap-4 cursor-pointer"
+            >
+              {/* Boy Character (2d1.png) — Reacts with excited hop & lean toward girl when letter opens */}
+              <motion.div
+                key={`boy-${isLetterOpen ? characterHopKey : 'idle'}`}
+                animate={
+                  isLetterOpen
+                    ? {
+                        x: [0, 14, 6],
+                        y: [0, -18, 0, -9, 0],
+                        rotate: [0, -3.5, 3.5, 1.5],
+                        scale: [1, 1.06, 0.99, 1.02, 1],
+                      }
+                    : { x: 0, y: 0, rotate: 0, scale: 1 }
+                }
+                transition={{ duration: 0.78, ease: [0.16, 1, 0.3, 1] }}
+                className="relative flex flex-col items-center"
+              >
+                {isLetterOpen && (
+                  <motion.span
+                    initial={{ opacity: 0, y: 8, scale: 0.7 }}
+                    animate={{ opacity: [0, 1, 0.85], y: [-2, -16, -12], scale: [0.7, 1.15, 1] }}
+                    transition={{ duration: 0.75, ease: 'easeOut' }}
+                    className="absolute -top-3 right-3 text-[#f8c8d8] pointer-events-none"
+                    aria-hidden="true"
+                  >
+                    <Heart className="w-5 h-5 fill-[#f8c8d8]" />
+                  </motion.span>
+                )}
                 <img
                   src={charBoyPng}
                   alt="Ilustrasi karakter cowok memegang surat cinta"
@@ -143,19 +185,56 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                   height="736"
                   className="w-[155px] sm:w-[185px] md:w-[205px] h-auto object-contain select-none character-idle"
                 />
-              </div>
+              </motion.div>
 
-              {/* Girl Character (2d2.png) — Appears with joyful reaction when envelope opens */}
+              {/* Floating Heart Sparkle Bridge between Boy & Girl when Letter is Open */}
+              <AnimatePresence>
+                {isLetterOpen && (
+                  <motion.div
+                    key={`duo-hearts-${characterHopKey}`}
+                    initial={{ opacity: 0, scale: 0.7, y: 12 }}
+                    animate={{ opacity: 1, scale: [0.85, 1.18, 1], y: [10, -14, -6] }}
+                    exit={{ opacity: 0, scale: 0.7 }}
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    className="self-center flex flex-col items-center gap-1.5 pointer-events-none"
+                    aria-hidden="true"
+                  >
+                    <Sparkles className="w-4 h-4 text-[#f6e2b8]" />
+                    <Heart className="w-6 h-6 text-[#f8c8d8] fill-[#f8c8d8]" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Girl Character (2d2.png) — Springs in with happy double-hop & joyful sway when envelope opens */}
               <AnimatePresence mode="wait">
                 {isLetterOpen ? (
                   <motion.div
-                    key="girl-revealed"
-                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    key={`girl-revealed-${characterHopKey}`}
+                    initial={{ opacity: 0, x: 18, y: 24, scale: 0.9, rotate: 6 }}
+                    animate={{
+                      opacity: 1,
+                      x: [18, -8, -4],
+                      y: [24, -20, 0, -10, 0],
+                      rotate: [6, -5, 3.5, -1.5],
+                      scale: [0.9, 1.07, 0.98, 1.03, 1],
+                    }}
                     exit={{ opacity: 0, y: 12, scale: 0.96 }}
-                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex flex-col items-center"
+                    transition={{ duration: 0.82, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative flex flex-col items-center"
                   >
+                    <motion.span
+                      initial={{ opacity: 0, y: 8, scale: 0.7 }}
+                      animate={{
+                        opacity: [0, 1, 0.9],
+                        y: [0, -18, -12],
+                        scale: [0.7, 1.2, 1],
+                      }}
+                      transition={{ duration: 0.8, delay: 0.12, ease: 'easeOut' }}
+                      className="absolute -top-3 left-3 text-[#f6e2b8] pointer-events-none"
+                      aria-hidden="true"
+                    >
+                      <Sparkles className="w-5 h-5" />
+                    </motion.span>
                     <img
                       src={charGirlPng}
                       alt="Ilustrasi karakter cewek tersenyum bahagia menyambut surat"
@@ -188,11 +267,11 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                 tabIndex={0}
                 aria-expanded={isLetterOpen}
                 aria-label={isLetterOpen ? 'Tutup amplop surat cinta' : 'Buka amplop surat cinta'}
-                onClick={onToggleLetter}
+                onClick={handleToggleAndAnimate}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    onToggleLetter();
+                    handleToggleAndAnimate();
                   }
                 }}
                 className="relative w-full bg-[#171a28] hover:bg-[#1d2133] p-5 md:p-6 cursor-pointer transition-colors select-none"
