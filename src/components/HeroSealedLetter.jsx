@@ -38,18 +38,18 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
           Starlit Capsule
         </a>
 
-        <nav aria-label="Navigasi Babak" className="hidden md:flex items-center gap-8 text-[14px] text-[#d5ccb8]">
+        <nav aria-label="Page sections" className="hidden md:flex items-center gap-8 text-[14px] text-[#d5ccb8]">
           <a href="#melodi" className="hover:text-[#faf8f5] transition-colors">
-            Kaset Melodi
+            Mixtape
           </a>
           <a href="#kenangan" className="hover:text-[#faf8f5] transition-colors">
-            Rasi Kenangan
+            Polaroids
           </a>
           <a href="#ulang-tahun" className="hover:text-[#faf8f5] transition-colors">
-            Empat November
+            Birthday Cake
           </a>
           <a href="#selamanya" className="hover:text-[#faf8f5] transition-colors">
-            Hari Jadi Kita
+            1st Anniversary
           </a>
         </nav>
 
@@ -73,7 +73,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
             className="font-display font-semibold text-[#faf8f5] m-0"
             style={{ fontSize: 'clamp(2.5rem, 1.6rem + 3.4vw, 4.5rem)' }}
           >
-            Kapsul Cinta Malam Ini
+            Our Little Love Capsule
           </motion.h1>
 
           <motion.p
@@ -82,8 +82,8 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
             transition={revealTransition(0.13)}
             className="mt-8 text-[17px] leading-[1.6] text-[#faf8f5] max-w-[54ch]"
           >
-            Sebuah ruang kecil di bawah bintang untuk merayakan hari ulang tahunmu pada 4 November
-            dan setiap detik perjalanan kasih yang kita tulis berdua.
+            A quiet place under the stars to celebrate your 20th birthday on November 4th and our
+            very first year together.
           </motion.p>
 
           <motion.p
@@ -93,8 +93,8 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
             className="mt-4 text-[17px] leading-[1.6] text-[#d5ccb8] max-w-[52ch]"
           >
             {isLetterOpen
-              ? 'Amplop sudah terbuka. Lagu kenangan kita sedang berputar lembut menemani langkahmu menyusuri halaman ini.'
-              : 'Ada sepucuk surat bersegel hati yang kubawa khusus untukmu malam ini. Sentuh amplop atau tombol di bawah untuk membukanya.'}
+              ? 'The envelope is open now. Our melody is playing softly while you scroll through our memories.'
+              : 'I brought a little letter sealed with a heart just for you. Tap the envelope or button below to open it.'}
           </motion.p>
 
           <motion.div
@@ -110,7 +110,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                 className="inline-flex items-center gap-3 bg-[#f6e2b8] hover:bg-[#faeccf] text-[#090a10] font-semibold text-[17px] px-7 py-4 cursor-pointer transition-transform active:scale-98"
               >
                 <Heart className="w-5 h-5 fill-[#090a10]" />
-                <span>Buka Surat Cinta</span>
+                <span>Open Love Letter</span>
               </button>
             ) : (
               <a
@@ -118,7 +118,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                 className="inline-flex items-center gap-3 bg-[#f6e2b8] hover:bg-[#faeccf] text-[#090a10] font-semibold text-[17px] px-7 py-4 no-underline transition-transform active:scale-98"
               >
                 <Music className="w-5 h-5" />
-                <span>Dengarkan Kaset Kita</span>
+                <span>Play Our Mixtape</span>
               </a>
             )}
 
@@ -126,7 +126,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
               href="#kenangan"
               className="inline-flex items-center gap-2 bg-[#11131d] hover:bg-[#171a28] text-[#faf8f5] text-[17px] font-medium px-6 py-4 no-underline transition-colors"
             >
-              <span>Lihat Galeri Polaroid</span>
+              <span>See Our Polaroids</span>
               <ArrowDown className="w-4 h-4 text-[#f6e2b8]" />
             </a>
           </motion.div>
@@ -179,7 +179,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                 )}
                 <img
                   src={charBoyPng}
-                  alt="Ilustrasi karakter cowok memegang surat cinta"
+                  alt="Boy character holding a love letter"
                   fetchpriority="high"
                   width="440"
                   height="736"
@@ -237,7 +237,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                     </motion.span>
                     <img
                       src={charGirlPng}
-                      alt="Ilustrasi karakter cewek tersenyum bahagia menyambut surat"
+                      alt="Girl character smiling happily"
                       width="437"
                       height="738"
                       className="w-[155px] sm:w-[185px] md:w-[205px] h-auto object-contain select-none character-happy"
@@ -253,7 +253,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                   >
                     <Sparkles className="w-6 h-6 text-[#f6e2b8] mb-2" />
                     <p className="font-script text-[24px] text-[#f8c8d8] m-0">
-                      &ldquo;Ada surat kecil untukmu, buka yuk...&rdquo;
+                      &ldquo;I have a little note for you, open it...&rdquo;
                     </p>
                   </motion.div>
                 )}
@@ -266,7 +266,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                 role="button"
                 tabIndex={0}
                 aria-expanded={isLetterOpen}
-                aria-label={isLetterOpen ? 'Tutup amplop surat cinta' : 'Buka amplop surat cinta'}
+                aria-label={isLetterOpen ? 'Close the love letter envelope' : 'Open the love letter envelope'}
                 onClick={handleToggleAndAnimate}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
@@ -283,18 +283,18 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                     </span>
                     <div>
                       <p className="font-display text-[24px] font-semibold text-[#faf8f5] m-0">
-                        {isLetterOpen ? 'Surat Pembuka Malam 4 November' : 'Amplop Bersegel Hati'}
+                        {isLetterOpen ? 'A Little Note for You' : 'Heart-Sealed Envelope'}
                       </p>
                       <p className="text-[14px] text-[#d5ccb8] m-0">
                         {isLetterOpen
-                          ? 'Ketuk untuk melipat kembali amplop'
-                          : 'Ketuk di sini untuk membuka lipatan origami'}
+                          ? 'Tap here to fold the letter back'
+                          : 'Tap here to unfold the note'}
                       </p>
                     </div>
                   </div>
 
                   <span className="text-[14px] font-medium text-[#f6e2b8] px-3 py-1.5 bg-[#11131d]">
-                    {isLetterOpen ? 'Terbuka' : 'Buka'}
+                    {isLetterOpen ? 'Opened' : 'Open'}
                   </span>
                 </div>
 
@@ -310,15 +310,15 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
                       className="mt-5 bg-[#ece6dc] text-[#1b1917] p-5 md:p-6"
                     >
                       <p className="font-script text-[24px] text-[#5c3138] m-0">
-                        Hai perempuan kesayanganku,
+                        Hey my favorite girl,
                       </p>
                       <p className="mt-2 text-[17px] leading-[1.6] text-[#2b2623] m-0">
-                        Selamat datang di kapsul waktu kita. Di halaman ini kusimpan lagu, potret
-                        perjalanan kita, kue ulang tahun 4 November untuk kamu tiup, serta catatan
-                        hatiku untuk hari jadi kita.
+                        Welcome to our little time capsule. Inside this page, I saved our favorite
+                        melodies, polaroid photos of us, a birthday cake for you to blow out, and a
+                        letter for our first anniversary.
                       </p>
                       <p className="mt-3 font-script text-[24px] text-[#5c3138] text-right m-0">
-                        Dengan seluruh sayangku untukmu
+                        With all my love, always
                       </p>
                     </motion.div>
                   )}

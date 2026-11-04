@@ -55,15 +55,15 @@ export function RetroCassettePlayer({
             className="font-display font-semibold text-[#faf8f5] m-0"
             style={{ fontSize: 'clamp(2.1rem, 1.4rem + 2.6vw, 3.6rem)' }}
           >
-            Putaran Kaset Kenangan
+            Our Memory Mixtape
           </motion.h2>
 
           <motion.p
             {...revealProps(0.08)}
             className="mt-6 text-[17px] leading-[1.6] text-[#faf8f5] max-w-[50ch]"
           >
-            Setiap putaran roda pita ini menyimpan nada yang kusiapkan untuk menemani kamu membaca
-            satu per satu kenangan kita.
+            Every spin of this little tape holds a soft melody I picked out to keep you company
+            while you read through our favorite moments.
           </motion.p>
 
           {/* Synchronized Whisper / Lyric Box */}
@@ -72,7 +72,7 @@ export function RetroCassettePlayer({
               &ldquo;{currentLyric}&rdquo;
             </p>
             <p className="mt-2 text-[14px] text-[#d5ccb8] m-0">
-              Lirik &amp; pesan berjalan selaras dengan melodi
+              Little notes moving along with the melody
             </p>
           </motion.div>
 
@@ -122,7 +122,7 @@ export function RetroCassettePlayer({
               <div className="bg-[#ece6dc] text-[#1b1917] p-5 md:p-6">
                 <div className="flex items-baseline justify-between gap-2">
                   <span className="font-script text-[24px] text-[#5c3138] font-semibold">
-                    Mixtape #0411 · Untukmu
+                    Mixtape #0411 · For You
                   </span>
                   <span className="text-[14px] font-semibold text-[#5c3138] bg-[#dfd6c7] px-2.5 py-1">
                     SIDE A
@@ -175,7 +175,7 @@ export function RetroCassettePlayer({
                       />
                     </div>
                     <span className="mt-1.5 text-[14px] text-[#d5ccb8]">
-                      {isPlaying ? 'Pita Berputar' : 'Siap Diputar'}
+                      {isPlaying ? 'Tape Spinning' : 'Ready to Play'}
                     </span>
                   </div>
 
@@ -219,7 +219,7 @@ export function RetroCassettePlayer({
                   min="0"
                   max={track.duration}
                   value={elapsedSeconds}
-                  aria-label="Durasi pemutaran lagu kaset"
+                  aria-label="Cassette playback progress"
                   onChange={(e) => onSeek(Number(e.target.value))}
                   className="w-full accent-[#f6e2b8] cursor-pointer h-2 bg-[#090a10]"
                 />
@@ -234,7 +234,7 @@ export function RetroCassettePlayer({
                   <button
                     type="button"
                     onClick={handlePrev}
-                    aria-label="Lagu sebelumnya"
+                    aria-label="Previous track"
                     className="p-3.5 bg-[#11131d] hover:bg-[#1f2336] text-[#faf8f5] cursor-pointer transition-transform active:scale-95"
                   >
                     <SkipBack className="w-5 h-5" />
@@ -248,12 +248,12 @@ export function RetroCassettePlayer({
                     {isPlaying ? (
                       <>
                         <Pause className="w-5 h-5 fill-[#090a10]" />
-                        <span>Hentikan Pita</span>
+                        <span>Pause Tape</span>
                       </>
                     ) : (
                       <>
                         <Play className="w-5 h-5 fill-[#090a10]" />
-                        <span>Putar Kaset</span>
+                        <span>Play Tape</span>
                       </>
                     )}
                   </button>
@@ -261,7 +261,7 @@ export function RetroCassettePlayer({
                   <button
                     type="button"
                     onClick={handleNext}
-                    aria-label="Lagu berikutnya"
+                    aria-label="Next track"
                     className="p-3.5 bg-[#11131d] hover:bg-[#1f2336] text-[#faf8f5] cursor-pointer transition-transform active:scale-95"
                   >
                     <SkipForward className="w-5 h-5" />
@@ -272,7 +272,7 @@ export function RetroCassettePlayer({
                   <button
                     type="button"
                     onClick={onToggleMute}
-                    aria-label={isMuted ? 'Nyalakan suara' : 'Bisukan suara'}
+                    aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
                     className="p-3.5 bg-[#11131d] hover:bg-[#1f2336] text-[#faf8f5] cursor-pointer transition-colors"
                   >
                     {isMuted ? (
@@ -286,7 +286,7 @@ export function RetroCassettePlayer({
                     ref={fileInputRef}
                     type="file"
                     accept="audio/*"
-                    aria-label="Pilih file audio MP3 dari perangkat"
+                    aria-label="Choose an MP3 audio file from your device"
                     className="hidden"
                     onChange={(e) => {
                       const file = e.target.files?.[0];
@@ -299,7 +299,7 @@ export function RetroCassettePlayer({
                     className="inline-flex items-center gap-2 px-4 py-3.5 bg-[#11131d] hover:bg-[#1f2336] text-[#d5ccb8] hover:text-[#faf8f5] text-[14px] font-medium cursor-pointer transition-colors"
                   >
                     <Upload className="w-4 h-4 text-[#f6e2b8]" />
-                    <span>Muat Lagu MP3</span>
+                    <span>Load Your Song</span>
                   </button>
                 </div>
               </div>

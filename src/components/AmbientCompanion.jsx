@@ -8,15 +8,15 @@ export function AmbientCompanion({ isVisible, isPlayingMusic, candleBlown, onTog
   if (!isVisible) return null;
 
   const statusMessage = candleBlown
-    ? 'Yay! Selamat ulang tahun, semoga semua doamu terkabul!'
+    ? 'Yay! Happy birthday, I hope all your wishes come true!'
     : isPlayingMusic
-      ? 'Senang rasanya menemanimu sambil mendengarkan melodi kita.'
-      : 'Sentuh ikon musik kalau ingin memutar melodi lagi ya.';
+      ? 'So happy to keep you company while we listen to our song.'
+      : 'Tap the music icon anytime if you want to play the melody again.';
 
   return (
     <aside
       data-ui="ambient-companion"
-      aria-label="Pendamping Visual Karakter 2D"
+      aria-label="2D Character Companion"
       className="fixed bottom-4 right-4 z-40 flex items-end gap-2.5"
     >
       {!isMinimized && (
@@ -31,12 +31,12 @@ export function AmbientCompanion({ isVisible, isPlayingMusic, candleBlown, onTog
               className="inline-flex items-center gap-1.5 text-[14px] font-medium text-[#f6e2b8] bg-[#11131d] hover:bg-[#23273b] px-2.5 py-1.5 cursor-pointer transition-colors"
             >
               <Music className="w-3.5 h-3.5" />
-              <span>{isPlayingMusic ? 'Jeda Melodi' : 'Putar Melodi'}</span>
+              <span>{isPlayingMusic ? 'Pause Music' : 'Play Music'}</span>
             </button>
             <button
               type="button"
               onClick={() => setIsMinimized(true)}
-              aria-label="Sembunyikan balon pesan"
+              aria-label="Hide message bubble"
               className="text-[14px] text-[#d5ccb8] hover:text-[#faf8f5] p-1 cursor-pointer"
             >
               <Minimize2 className="w-3.5 h-3.5" />
@@ -48,12 +48,12 @@ export function AmbientCompanion({ isVisible, isPlayingMusic, candleBlown, onTog
       <button
         type="button"
         onClick={() => setIsMinimized((prev) => !prev)}
-        aria-label="Tampilkan atau sembunyikan pesan karakter pendamping"
+        aria-label="Show or hide companion message"
         className="relative group bg-[#171a28] hover:bg-[#202436] p-2 cursor-pointer transition-transform active:scale-95"
       >
         <img
           src={charGirlPng}
-          alt="Karakter cewek pendamping"
+          alt="Girl companion character"
           loading="lazy"
           width="64"
           height="108"

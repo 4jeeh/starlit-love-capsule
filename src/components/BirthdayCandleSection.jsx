@@ -75,7 +75,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
     setMicError('');
     try {
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        setMicError('Browser ini tidak mendukung akses mikrofon. Gunakan tombol Tiup Lilin di samping.');
+        setMicError('Your browser does not support microphone access. Just tap the Blow Out Candle button next to it.');
         return;
       }
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -122,7 +122,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
 
       rafRef.current = requestAnimationFrame(detectBlow);
     } catch {
-      setMicError('Izin mikrofon belum aktif. Kamu tetap bisa meniup lilin dengan menekan tombol Tiup Lilin.');
+      setMicError('Microphone permission is not enabled yet. You can still blow out the candle by tapping the button.');
       setMicActive(false);
     }
   };
@@ -145,7 +145,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
             className="font-display font-semibold text-[#faf8f5] m-0"
             style={{ fontSize: 'clamp(2.1rem, 1.4rem + 2.6vw, 3.6rem)' }}
           >
-            Perayaan Empat November
+            Celebrating Your Twentieth
           </motion.h2>
 
           <motion.p
@@ -155,9 +155,8 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
             transition={{ duration: 0.5, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
             className="mt-6 text-[17px] leading-[1.6] text-[#faf8f5] max-w-[54ch]"
           >
-            Ruang perayaan ini kupersembahkan khusus untukmu. Tentang bagaimana kelahiranmu pada
-            tanggal 4 November membawa begitu banyak warna, ketenangan, dan kebahagiaan ke dalam
-            hidupku.
+            This little corner is dedicated to you. It is all about how your birthday on November
+            4th brought so much warmth, peace, and happiness into my life.
           </motion.p>
 
           <AnimatePresence mode="wait">
@@ -174,12 +173,12 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
                 <div className="flex items-center gap-3 text-[#f6e2b8]">
                   <Sparkles className="w-5 h-5" />
                   <h3 className="font-display text-[24px] font-semibold text-[#faf8f5] m-0">
-                    Sebutkan Satu Harapanmu
+                    Make a Birthday Wish
                   </h3>
                 </div>
                 <p className="mt-3 text-[17px] leading-[1.6] text-[#d5ccb8] m-0">
-                  Pejamkan mata sejenak, simpan doa terbaikmu untuk usia yang baru ini, lalu tiup
-                  lilin di samping untuk membuka surat ulang tahun dariku.
+                  Close your eyes for a second, make your best wish for turning twenty, and blow out
+                  the candle to open my birthday letter for you.
                 </p>
               </motion.div>
             ) : (
@@ -193,16 +192,16 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <h3 className="font-script text-[24px] text-[#5c3138] m-0">
-                      Happy 20th Birthday, Sayangku!
+                      Happy 20th Birthday, My Love!
                     </h3>
                     <p className="text-[14px] font-medium text-[#5c534c] mt-1 m-0">
-                      4 November · Welcome to Chapter Twenty
+                      November 4 · Welcome to Chapter Twenty
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
                     <img
                       src={charBoyPng}
-                      alt="Karakter cowok"
+                      alt="Boy character"
                       loading="lazy"
                       width="48"
                       height="80"
@@ -211,7 +210,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
                     <Heart className="w-4 h-4 text-[#5c3138] fill-[#5c3138]" />
                     <img
                       src={charGirlPng}
-                      alt="Karakter cewek"
+                      alt="Girl character"
                       loading="lazy"
                       width="48"
                       height="80"
@@ -221,19 +220,18 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
                 </div>
 
                 <p className="mt-5 text-[17px] leading-[1.65] text-[#2b2623]">
-                  Terima kasih sudah lahir ke dunia dan tumbuh menjadi perempuan sehebat dan
-                  selembut kamu. Memasuki usia ke-20 ini, aku berdoa semoga langkahmu selalu
-                  dimudahkan, hatimu selalu dilapangkan, dan setiap mimpi yang kamu perjuangkan
-                  berbuah manis.
+                  Thank you for being born into this world and growing into such a kind, sweet, and
+                  amazing person. As you step into your twenties, I hope every path you take feels
+                  easier, your heart stays happy, and all the dreams you work hard for come true.
                 </p>
 
                 <p className="mt-3 text-[17px] leading-[1.65] text-[#2b2623]">
-                  Jangan pernah merasa sendirian menghadapi apa pun ya. Selama aku ada, kamu akan
-                  selalu punya seseorang yang bangga padamu dan mencintaimu sepenuh hati.
+                  Please never feel like you have to face anything alone. As long as I am here, you
+                  will always have someone who is proud of you and loves you with his whole heart.
                 </p>
 
                 <p className="mt-5 font-script text-[24px] text-[#5c3138] text-right m-0">
-                  Peluk hangat di hari lahirmu
+                  Sending you the warmest birthday hug
                 </p>
               </motion.div>
             )}
@@ -255,7 +253,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
             <div className="w-full flex items-center justify-between text-[14px] text-[#d5ccb8] mb-3">
               <span>Cheers to Twenty · Wish Upon a Star</span>
               <span className="text-[#f6e2b8]">
-                {candleBlown ? 'Lilin Telah Ditiup' : 'Api Lilin Menyala'}
+                {candleBlown ? 'Candle Blown Out' : 'Candle Lit'}
               </span>
             </div>
 
@@ -265,8 +263,8 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
               tabIndex={0}
               aria-label={
                 candleBlown
-                  ? 'Lilin sudah padam, ketuk untuk menyalakan kembali'
-                  : 'Ketuk kue atau lilin untuk meniup lilin ulang tahun'
+                  ? 'Candle is out, tap to light it again'
+                  : 'Tap the cake or candle to blow out the birthday candle'
               }
               onClick={() => {
                 if (!candleBlown) triggerExtinguish();
@@ -365,7 +363,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
             {micActive && !candleBlown && (
               <div className="w-full max-w-[360px] bg-[#171a28] p-3.5 mb-4">
                 <div className="flex items-center justify-between text-[14px] text-[#faf8f5] mb-1.5">
-                  <span>Sensor Tiupan Mikrofon Aktif</span>
+                  <span>Mic Blow Sensor Active</span>
                   <span className="tabular-nums text-[#f6e2b8]">{breathLevel}%</span>
                 </div>
                 <div className="w-full h-2 bg-[#090a10] overflow-hidden">
@@ -375,7 +373,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
                   />
                 </div>
                 <p className="mt-1.5 text-[14px] text-[#d5ccb8] m-0">
-                  Tiup perlahan ke arah mikrofon HP atau laptopmu...
+                  Blow gently toward your phone or laptop mic...
                 </p>
               </div>
             )}
@@ -395,7 +393,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
                     className="inline-flex items-center gap-2.5 bg-[#f6e2b8] hover:bg-[#faeccf] text-[#090a10] font-semibold text-[17px] px-6 py-3.5 cursor-pointer transition-transform active:scale-95"
                   >
                     <Wind className="w-5 h-5" />
-                    <span>Tiup Lilin Sekarang</span>
+                    <span>Blow Out Candle</span>
                   </button>
 
                   <button
@@ -406,12 +404,12 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
                     {micActive ? (
                       <>
                         <MicOff className="w-4 h-4 text-[#f8c8d8]" />
-                        <span>Matikan Sensor Mic</span>
+                        <span>Turn Off Mic</span>
                       </>
                     ) : (
                       <>
                         <Mic className="w-4 h-4 text-[#f6e2b8]" />
-                        <span>Tiup Pakai Mikrofon</span>
+                        <span>Blow With Mic</span>
                       </>
                     )}
                   </button>
@@ -423,7 +421,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
                   className="inline-flex items-center gap-2 bg-[#171a28] hover:bg-[#22273b] text-[#f6e2b8] text-[14px] font-medium px-5 py-3.5 cursor-pointer transition-colors"
                 >
                   <RotateCcw className="w-4 h-4" />
-                  <span>Nyalakan Lilin Lagi</span>
+                  <span>Light Candle Again</span>
                 </button>
               )}
             </div>

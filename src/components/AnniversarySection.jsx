@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Calendar } from 'lucide-react';
 import { CROSSFADE_PORTRAITS } from '../data/memoriesData';
 
-// Tanggal jadian dikunci permanen: 4 November 2024 (Anniversary Pertama · 1 Tahun Bersama)
-const LOCKED_ANNIVERSARY_DISPLAY = '4 November 2024';
+// Permanently locked start date: November 4, 2024 (1st Anniversary · 1 Year Together)
+const LOCKED_ANNIVERSARY_DISPLAY = 'November 4, 2024';
 
 function computeFirstAnniversaryElapsed() {
   const now = new Date();
@@ -79,7 +79,7 @@ export function AnniversarySection() {
             className="font-display font-semibold text-[#faf8f5] m-0"
             style={{ fontSize: 'clamp(2.1rem, 1.4rem + 2.6vw, 3.6rem)' }}
           >
-            Satu Tahun Pertama Kita
+            Our Very First Year
           </motion.h2>
           <motion.p
             initial={{ opacity: 0.85, y: 20 }}
@@ -88,8 +88,8 @@ export function AnniversarySection() {
             transition={{ duration: 0.5, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
             className="mt-5 text-[17px] leading-[1.6] text-[#d5ccb8] max-w-[52ch] m-0"
           >
-            Tepat satu tahun sejak kita memulai cerita ini di tahun 2024. Setiap detiknya adalah
-            tawa, doa, dan kesabaran yang kita lewati berdampingan.
+            It has been one whole year since we started this journey in 2024. Every second has been
+            filled with laughs, warm hugs, and growing closer together.
           </motion.p>
         </div>
 
@@ -107,36 +107,36 @@ export function AnniversarySection() {
               <div className="font-display text-[24px] font-semibold text-[#f6e2b8] tabular-nums">
                 {elapsed.days}
               </div>
-              <div className="mt-1 text-[14px] text-[#d5ccb8]">Hari</div>
+              <div className="mt-1 text-[14px] text-[#d5ccb8]">Days</div>
             </div>
             <div className="bg-[#171a28] p-3.5">
               <div className="font-display text-[24px] font-semibold text-[#faf8f5] tabular-nums">
                 {elapsed.hours}
               </div>
-              <div className="mt-1 text-[14px] text-[#d5ccb8]">Jam</div>
+              <div className="mt-1 text-[14px] text-[#d5ccb8]">Hours</div>
             </div>
             <div className="bg-[#171a28] p-3.5">
               <div className="font-display text-[24px] font-semibold text-[#faf8f5] tabular-nums">
                 {elapsed.minutes}
               </div>
-              <div className="mt-1 text-[14px] text-[#d5ccb8]">Menit</div>
+              <div className="mt-1 text-[14px] text-[#d5ccb8]">Minutes</div>
             </div>
             <div className="bg-[#171a28] p-3.5">
               <div className="font-display text-[24px] font-semibold text-[#f8c8d8] tabular-nums">
                 {elapsed.seconds}
               </div>
-              <div className="mt-1 text-[14px] text-[#d5ccb8]">Detik</div>
+              <div className="mt-1 text-[14px] text-[#d5ccb8]">Seconds</div>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-3 mt-4">
             <span className="inline-flex items-center gap-2 text-[14px] text-[#f6e2b8]">
               <Calendar className="w-4 h-4" />
-              <span>Anniversary Pertama · 1 Tahun Bersama</span>
+              <span>Happy 1st Anniversary · 1 Year Together</span>
             </span>
 
             <span className="inline-flex items-center gap-2 bg-[#171a28] text-[#faf8f5] px-3 py-1 text-[14px]">
-              <span>Sejak {LOCKED_ANNIVERSARY_DISPLAY}</span>
+              <span>Since {LOCKED_ANNIVERSARY_DISPLAY}</span>
             </span>
           </div>
         </motion.div>
@@ -189,7 +189,7 @@ export function AnniversarySection() {
                   key={item.id}
                   type="button"
                   onClick={() => setPortraitIndex(idx)}
-                  aria-label={`Tampilkan potret ${idx + 1}`}
+                  aria-label={`Show portrait ${idx + 1}`}
                   className={`h-2 transition-colors cursor-pointer ${
                     idx === portraitIndex ? 'w-7 bg-[#5c3138]' : 'w-2 bg-[#c9beae]'
                   }`}
@@ -209,29 +209,28 @@ export function AnniversarySection() {
             className="bg-[#11131d] p-7 md:p-11"
           >
             <h3 className="font-display text-[24px] font-semibold text-[#f6e2b8] m-0">
-              Surat Kecil untuk Anniversary Pertama Kita
+              A Little Note for Our First Anniversary
             </h3>
 
             <p className="mt-6 text-[17px] leading-[1.68] text-[#faf8f5]">
-              Tak terasa sudah satu tahun penuh kita melangkah bersama sejak 2024. Dalam 365 hari
-              pertama ini, begitu banyak kenangan indah yang kita bangun: dari tawa yang membuat
-              kita lupa waktu hingga pelukan yang saling menguatkan saat keadaan tidak mudah.
+              Time really flew by, and now we have spent a whole year together since 2024. Over
+              these first 365 days, we have made so many sweet memories, from laughing until we lose
+              track of time to holding each other close when days get tough.
             </p>
 
             <p className="mt-4 text-[17px] leading-[1.68] text-[#faf8f5]">
-              Terima kasih sudah menjadi pasangan, sahabat cerita, sekaligus rumah paling hangat
-              untukku selama satu tahun pertama ini. Setiap perhatian kecilmu, sabarmu, dan caramu
-              menyayangiku selalu membuatku merasa menjadi orang paling beruntung.
+              Thank you for being my partner, my best friend to talk to, and my warmest home this
+              past year. Every little thing you do, your patience, and the way you care for me
+              always makes me feel like the luckiest guy around.
             </p>
 
             <p className="mt-4 text-[17px] leading-[1.68] text-[#faf8f5]">
-              Selamat ulang tahun yang ke-4 November dan selamat merayakan Anniversary pertama
-              kita. Mari terus berjalan berdampingan, menjaga satu sama lain, menuju tahun-tahun
-              berikutnya.
+              Happy 20th birthday and happy 1st anniversary to us. Let us keep walking side by
+              side, taking care of each other, into many more years together.
             </p>
 
             <p className="mt-8 font-script text-[24px] text-[#f8c8d8] m-0">
-              Satu tahun pertama, dan selamanya bersamamu.
+              Year one down, and forever to go with you.
             </p>
           </motion.div>
         </div>
@@ -247,22 +246,22 @@ export function AnniversarySection() {
             The Starlit Love Capsule
           </p>
           <p className="mt-2 text-[14px] text-[#d5ccb8] m-0">
-            Dibuat dengan sepenuh hati untuk merayakan 4 November dan 1 tahun perjalanan cinta kita.
+            Made with all my heart to celebrate your 20th birthday and our 1st year together.
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-6 text-[14px] text-[#f6e2b8]">
           <a href="#surat" className="hover:text-[#faf8f5] transition-colors">
-            Kembali ke Atas
+            Back to Top
           </a>
           <a href="#melodi" className="hover:text-[#faf8f5] transition-colors">
-            Kaset Melodi
+            Mixtape
           </a>
           <a href="#kenangan" className="hover:text-[#faf8f5] transition-colors">
-            Galeri Kenangan
+            Polaroids
           </a>
           <a href="#ulang-tahun" className="hover:text-[#faf8f5] transition-colors">
-            Tiup Lilin
+            Birthday Cake
           </a>
         </div>
       </footer>

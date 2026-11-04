@@ -53,7 +53,7 @@ function PolaroidCard({ item, index, onOpen }) {
         onClick={() => onOpen(index)}
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
-        aria-label={`Buka cerita kenangan: ${item.title}`}
+        aria-label={`Open memory story: ${item.title}`}
         style={{
           transform: `perspective(900px) rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg) rotateZ(${item.rotation}deg)`,
         }}
@@ -176,7 +176,7 @@ export function ConstellationGallery() {
             className="font-display font-semibold text-[#faf8f5] m-0"
             style={{ fontSize: 'clamp(2.1rem, 1.4rem + 2.6vw, 3.6rem)' }}
           >
-            Rasi Kenangan Kita
+            Our Polaroid Memories
           </motion.h2>
         </div>
         <div className="lg:col-span-5">
@@ -187,8 +187,8 @@ export function ConstellationGallery() {
             transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
             className="text-[17px] leading-[1.6] text-[#d5ccb8] m-0"
           >
-            Setiap polaroid di bawah ini adalah satu bintang di langit perjalanan kita. Sentuh
-            kartu mana pun untuk membaca catatan tangan yang kutulis khusus untuk momen itu.
+            Every polaroid below is like a little star from our first year together. Tap any photo
+            card to read the handwritten note I wrote for that moment.
           </motion.p>
         </div>
       </div>
@@ -239,14 +239,14 @@ export function ConstellationGallery() {
                 <div className="flex items-center justify-between gap-2">
                   <span className="inline-flex items-center gap-1.5 text-[14px] text-[#f6e2b8]">
                     <Sparkles className="w-4 h-4" />
-                    <span>Kenangan Pilihan</span>
+                    <span>Favorite Memory</span>
                   </span>
 
                   <form method="dialog">
                     <button
                       type="submit"
                       onClick={closeModal}
-                      aria-label="Tutup jendela kenangan"
+                      aria-label="Close memory window"
                       className="p-2.5 bg-[#171a28] hover:bg-[#23273b] text-[#faf8f5] cursor-pointer"
                     >
                       <X className="w-5 h-5" />
@@ -278,7 +278,7 @@ export function ConstellationGallery() {
 
                 <div className="mt-6 bg-[#171a28] p-4">
                   <p className="font-script text-[24px] text-[#f8c8d8] m-0">
-                    Catatan Kecil: &ldquo;{activeMemory.handwrittenNote}&rdquo;
+                    Little Note: &ldquo;{activeMemory.handwrittenNote}&rdquo;
                   </p>
                 </div>
               </div>
@@ -290,7 +290,7 @@ export function ConstellationGallery() {
                   className="inline-flex items-center gap-2 px-4 py-3 bg-[#171a28] hover:bg-[#22273b] text-[#faf8f5] text-[14px] font-medium cursor-pointer transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4" />
-                  <span>Sebelumnya</span>
+                  <span>Previous</span>
                 </button>
 
                 <button
@@ -298,7 +298,7 @@ export function ConstellationGallery() {
                   onClick={showNext}
                   className="inline-flex items-center gap-2 px-4 py-3 bg-[#f6e2b8] hover:bg-[#faeccf] text-[#090a10] text-[14px] font-semibold cursor-pointer transition-colors"
                 >
-                  <span>Berikutnya</span>
+                  <span>Next</span>
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
