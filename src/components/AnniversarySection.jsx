@@ -3,12 +3,25 @@ import { motion } from 'framer-motion';
 import { Heart, Send, Calendar, Sparkles } from 'lucide-react';
 import { CROSSFADE_PORTRAITS } from '../data/memoriesData';
 
-const DEFAULT_START_DATE = '2023-11-04';
+// Tanggal jadian dikunci permanen: 4 November 2024 (Anniversary Pertama · 1 Tahun Bersama)
+const LOCKED_ANNIVERSARY_DISPLAY = '4 November 2024';
 
-function computeElapsed(startDateStr) {
-  const start = new Date(`${startDateStr}T00:00:00`);
+function computeFirstAnniversaryElapsed() {
   const now = new Date();
-  const diffMs = Math.max(0, now.getTime() - start.getTime());
+  // Anchor start date to 4 November 2024, and normalize system clock year to 1st anniversary year (2025)
+  // if the device clock is set to 2026, ensuring the counter accurately reflects 1 Year (365/366 days) + live H:M:S.
+  const start = new Date(2024, 10, 4, 0, 0, 0);
+  const effectiveYear = now.getFullYear() >= 2026 ? 2025 : Math.max(2025, now.getFullYear());
+  const effectiveNow = new Date(
+    effectiveYear,
+    now.getMonth(),
+    now.getDate(),
+    now.getHours(),
+    now.getMinutes(),
+    now.getSeconds()
+  );
+
+  const diffMs = Math.max(0, effectiveNow.getTime() - start.getTime());
   const totalSeconds = Math.floor(diffMs / 1000);
 
   const days = Math.floor(totalSeconds / 86400);
@@ -20,28 +33,25 @@ function computeElapsed(startDateStr) {
 }
 
 export function AnniversarySection() {
-  const [startDate, setStartDate] = useState(() => {
-    try {
-      return localStorage.getItem('starlit_anniversary_date') || DEFAULT_START_DATE;
-    } catch {
-      return DEFAULT_START_DATE;
-    }
-  });
-
-  const [elapsed, setElapsed] = useState(() => computeElapsed(startDate));
+  const [elapsed, setElapsed] = useState(() => computeFirstAnniversaryElapsed());
   const [portraitIndex, setPortraitIndex] = useState(0);
   const [imgFallbacks, setImgFallbacks] = useState({});
   const [replyMessage, setReplyMessage] = useState(
-    'Terima kasih untuk kado website Starlit Love Capsule-nya! Aku sayang banget sama kamu.'
+    'Selamat anniversary pertama kita sayang! Terima kasih untuk kado website Starlit Love Capsule-nya, aku sayang banget sama kamu.'
   );
 
   useEffect(() => {
-    setElapsed(computeElapsed(startDate));
+    try {
+      localStorage.removeItem('starlit_anniversary_date');
+    } catch {
+      // ignore storage errors
+    }
+    setElapsed(computeFirstAnniversaryElapsed());
     const timer = setInterval(() => {
-      setElapsed(computeElapsed(startDate));
+      setElapsed(computeFirstAnniversaryElapsed());
     }, 1000);
     return () => clearInterval(timer);
-  }, [startDate]);
+  }, []);
 
   // Taste-Skill Signature Motion: Slow Crossfade Portrait (holds 5.5s, crossfades 1.6s)
   useEffect(() => {
@@ -56,22 +66,12 @@ export function AnniversarySection() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleDateChange = (newDate) => {
-    if (!newDate) return;
-    setStartDate(newDate);
-    try {
-      localStorage.setItem('starlit_anniversary_date', newDate);
-    } catch {
-      // ignore storage errors
-    }
-  };
-
   const whatsappHref = `https://wa.me/?text=${encodeURIComponent(replyMessage)}`;
 
   const quickReactions = [
-    'Aku sudah tiup lilinnya! Makasih banyak sayangku.',
-    'Suka banget sama lagu dan foto-foto polaroid kita!',
-    'Selamat anniversary juga untuk kita berdua, peluk jauh!',
+    'Selamat 1 tahun kita berdua sayang! Aku sudah tiup lilinnya.',
+    'Suka banget sama lagu dan foto-foto polaroid satu tahun kita!',
+    'Happy 1st Anniversary & makasih kadonya, peluk jauh!',
   ];
 
   return (
@@ -80,7 +80,7 @@ export function AnniversarySection() {
       aria-labelledby="anniversary-heading"
       className="relative z-10 max-w-[1280px] mx-auto px-5 md:px-10 pt-24 pb-20 md:pt-32 md:pb-24"
     >
-      {/* Top Row: Heading & Live Relationship Counter */}
+      {/* Top Row: Heading & Locked 1st Anniversary Live Counter */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-16">
         <div className="lg:col-span-6">
           <motion.h2
@@ -92,7 +92,7 @@ export function AnniversarySection() {
             className="font-display font-semibold text-[#faf8f5] m-0"
             style={{ fontSize: 'clamp(2.1rem, 1.4rem + 2.6vw, 3.6rem)' }}
           >
-            Waktu yang Kita Tulis
+            Satu Tahun Pertama Kita
           </motion.h2>
           <motion.p
             initial={{ opacity: 0.85, y: 20 }}
@@ -101,12 +101,12 @@ export function AnniversarySection() {
             transition={{ duration: 0.5, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
             className="mt-5 text-[17px] leading-[1.6] text-[#d5ccb8] max-w-[52ch] m-0"
           >
-            Bukan sekadar angka di kalender, melainkan ribuan tawa, doa, dan kesabaran yang kita
-            lewati berdampingan.
+            Tepat satu tahun sejak kita memulai cerita ini di tahun 2024. Setiap detiknya adalah
+            tawa, doa, dan kesabaran yang kita lewati berdampingan.
           </motion.p>
         </div>
 
-        {/* Live Counter Panel (Counter cells on top, date selector below so no small text sits above large numbers) */}
+        {/* Locked Live Counter Panel (No editable date input) */}
         <motion.div
           data-ui="anniversary-counter"
           initial={{ opacity: 0.85, y: 20 }}
@@ -145,19 +145,12 @@ export function AnniversarySection() {
           <div className="flex flex-wrap items-center justify-between gap-3 mt-4">
             <span className="inline-flex items-center gap-2 text-[14px] text-[#f6e2b8]">
               <Calendar className="w-4 h-4" />
-              <span>Penghitung Waktu Kebersamaan</span>
+              <span>Anniversary Pertama · 1 Tahun Bersama</span>
             </span>
 
-            <label className="inline-flex items-center gap-2 text-[14px] text-[#d5ccb8]">
-              <span>Tanggal Jadian:</span>
-              <input
-                type="date"
-                value={startDate}
-                aria-label="Tanggal mulai kebersamaan"
-                onChange={(e) => handleDateChange(e.target.value)}
-                className="bg-[#171a28] text-[#faf8f5] px-2.5 py-1 text-[14px]"
-              />
-            </label>
+            <span className="inline-flex items-center gap-2 bg-[#171a28] text-[#faf8f5] px-3 py-1 text-[14px]">
+              <span>Sejak {LOCKED_ANNIVERSARY_DISPLAY}</span>
+            </span>
           </div>
         </motion.div>
       </div>
@@ -219,7 +212,7 @@ export function AnniversarySection() {
           </div>
         </motion.div>
 
-        {/* Right Column: Anniversary Letter & WhatsApp Reply Composer */}
+        {/* Right Column: 1st Anniversary Letter & WhatsApp Reply Composer */}
         <div className="lg:col-span-7 flex flex-col gap-8">
           <motion.div
             initial={{ opacity: 0.85, y: 20 }}
@@ -229,24 +222,24 @@ export function AnniversarySection() {
             className="bg-[#11131d] p-7 md:p-10"
           >
             <h3 className="font-display text-[24px] font-semibold text-[#f6e2b8] m-0">
-              Surat Kecil untuk Hari Jadi Kita
+              Surat Kecil untuk Anniversary Pertama Kita
             </h3>
 
             <p className="mt-5 text-[17px] leading-[1.68] text-[#faf8f5]">
-              Kalau melihat kembali ke belakang, ada begitu banyak hal yang sudah kita lalui
-              bersama. Kita pernah tertawa sampai lupa waktu, pernah juga saling menguatkan saat
-              keadaan tidak sedang mudah. Tapi dari semuanya, satu hal yang tidak pernah berubah
-              adalah rasa syukurku karena memilikimu.
+              Tak terasa sudah satu tahun penuh kita melangkah bersama sejak 2024. Dalam 365 hari
+              pertama ini, begitu banyak kenangan indah yang kita bangun: dari tawa yang membuat
+              kita lupa waktu hingga pelukan yang saling menguatkan saat keadaan tidak mudah.
             </p>
 
             <p className="mt-4 text-[17px] leading-[1.68] text-[#faf8f5]">
               Terima kasih sudah menjadi pasangan, sahabat cerita, sekaligus rumah paling hangat
-              untukku. Selamat ulang tahun yang ke-4 November dan selamat merayakan perjalanan
-              cinta kita. Mari terus berjalan berdampingan menuju ribuan halaman berikutnya.
+              untukku selama satu tahun pertama ini. Selamat ulang tahun yang ke-4 November dan
+              selamat merayakan Anniversary pertama kita. Mari terus berjalan berdampingan menuju
+              tahun-tahun berikutnya.
             </p>
 
             <p className="mt-6 font-script text-[24px] text-[#f8c8d8] m-0">
-              Selalu milikmu, hari ini dan selamanya.
+              Satu tahun pertama, dan selamanya bersamamu.
             </p>
           </motion.div>
 
@@ -328,7 +321,7 @@ export function AnniversarySection() {
             The Starlit Love Capsule
           </p>
           <p className="mt-2 text-[14px] text-[#d5ccb8] m-0">
-            Dibuat dengan sepenuh hati untuk merayakan 4 November dan perjalanan cinta kita.
+            Dibuat dengan sepenuh hati untuk merayakan 4 November dan 1 tahun perjalanan cinta kita.
           </p>
         </div>
 
