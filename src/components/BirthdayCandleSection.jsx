@@ -155,8 +155,9 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
             transition={{ duration: 0.5, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
             className="mt-6 text-[17px] leading-[1.6] text-[#faf8f5] max-w-[54ch]"
           >
-            Hari ini adalah tentang kamu. Tentang bagaimana kehadiranmu pada tanggal 4 November
-            membawa begitu banyak warna, ketenangan, dan kebahagiaan ke dalam hidupku.
+            Ruang perayaan ini kupersembahkan khusus untukmu. Tentang bagaimana kelahiranmu pada
+            tanggal 4 November membawa begitu banyak warna, ketenangan, dan kebahagiaan ke dalam
+            hidupku.
           </motion.p>
 
           <AnimatePresence mode="wait">
@@ -221,7 +222,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
 
                 <p className="mt-5 text-[17px] leading-[1.65] text-[#2b2623]">
                   Terima kasih sudah lahir ke dunia dan tumbuh menjadi perempuan sehebat dan
-                  selembut kamu hari ini. Di usia barumu ini, aku berdoa semoga langkahmu selalu
+                  selembut kamu. Memasuki usia ke-20 ini, aku berdoa semoga langkahmu selalu
                   dimudahkan, hatimu selalu dilapangkan, dan setiap mimpi yang kamu perjuangkan
                   berbuah manis.
                 </p>
