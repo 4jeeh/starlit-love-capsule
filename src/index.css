@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+:root {
+  --bg-midnight: #090a10;
+  --bg-surface: #11131d;
+  --bg-elevated: #171a28;
+  --bg-panel: #1f2336;
+  --ink-ivory: #faf8f5;
+  --ink-muted: #d5ccb8;
+  --accent-gold: #f6e2b8;
+  --accent-rose: #f8c8d8;
+  --polaroid-paper: #f4efe6;
+  --polaroid-ink: #1b1917;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif; /* taste-skill-ignore */
+  --font-script: 'Caveat', cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-midnight);
+  color: var(--ink-ivory);
+  font-family: var(--font-sans);
+  scrollbar-width: thin;
+  scrollbar-color: #f6e2b8 #090a10;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--bg-midnight);
+  color: var(--ink-ivory);
+  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Custom Browser Surfaces (Impeccable Craft Floor) */
+::selection {
+  background-color: var(--accent-gold);
+  color: var(--bg-midnight);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-midnight);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #36394c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+
+.font-sans-body {
+  font-family: var(--font-sans);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Native Dialog Lightbox & Top-Layer Animations (Modern Web Guidance) */
+dialog.memory-dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: var(--ink-ivory);
+  max-width: min(92vw, 900px);
+  width: 100%;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(16px) scale(0.97);
+  transition:
+    opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    display 0.28s allow-discrete,
+    overlay 0.28s allow-discrete;
+}
+
+dialog.memory-dialog[open] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@starting-style {
+  dialog.memory-dialog[open] {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+}
+
+dialog.memory-dialog::backdrop {
+  background-color: rgba(9, 10, 16, 0.84);
+  opacity: 0;
+  transition:
+    opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    display 0.28s allow-discrete,
+    overlay 0.28s allow-discrete;
+}
+
+dialog.memory-dialog[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  dialog.memory-dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+/* 2D Character Idle Breathing & Floating */
+@keyframes characterFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) scale(1.012);
+  }
+}
+
+@keyframes characterCelebrate {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(0, -12px, 0) rotate(-1.5deg);
+  }
+  75% {
+    transform: translate3d(0, -6px, 0) rotate(1.5deg);
+  }
+}
+
+@keyframes tapeReelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes candleFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.96;
+  }
+  33% {
+    transform: scale(1.05, 0.96) rotate(1.5deg);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0.96, 1.06) rotate(-1.2deg);
+    opacity: 0.92;
+  }
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.85);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(10px, -65px, 0) scale(1.65);
+    opacity: 0;
+  }
+}
+
+.character-idle {
+  animation: characterFloat 5.2s ease-in-out infinite;
+  will-change: transform;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.character-happy {
+  animation: characterCelebrate 4.4s ease-in-out infinite;
+  will-change: transform;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.reel-spinning {
+  animation: tapeReelSpin 4.5s linear infinite;
+  transform-origin: center;
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 24s;
+  }
+}
+
+.flame-active {
+  animation: candleFlicker 1.9s ease-in-out infinite;
+  transform-origin: bottom center;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.smoke-wisp {
+  animation: smokeRise 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 0.4s;
+  }
+}
+
+/* Section Reveal Entrance */
+.reveal-item {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}

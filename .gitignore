@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Editor & OS directories
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Tooling & Design Inspection Scratch
+.taste-skill/
+.superpowers/
+.impeccable/
+scratch/
+
+# ============================================================================
+# STRICT PRIVACY PROTECTION — PERSONAL PHOTOS & PRIVATE ASSETS
+# Never allow real personal photos or private audio recordings into Git!
+# ============================================================================
+src/assets/memories/
+src/assets/memories/**
+public/memories/
+public/memories/**
+src/assets/audio/*.mp3
+src/assets/audio/*.wav
+src/assets/audio/*.m4a
+src/assets/audio/*.ogg
+public/audio/*.mp3
+public/audio/*.wav
+public/audio/*.m4a
+.env
+.env.*
+!.env.example
