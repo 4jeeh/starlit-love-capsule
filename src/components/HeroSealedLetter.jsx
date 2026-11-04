@@ -45,7 +45,7 @@ export function HeroSealedLetter({ isLetterOpen, onOpenLetter, onToggleLetter })
           href="#ulang-tahun"
           className="inline-flex items-center gap-2 bg-[#171a28] hover:bg-[#22263a] text-[#f6e2b8] px-4 py-2.5 text-[14px] font-medium transition-colors"
         >
-          <span>Rayakan 4 Nov</span>
+          <span>Cheers to Twenty</span>
         </a>
       </header>
 

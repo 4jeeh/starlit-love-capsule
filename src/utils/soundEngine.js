@@ -61,8 +61,8 @@ class SoundEngine {
           [55, 59, 62, 67], [71], [69], [67],
         ],
         lyrics: [
-          'Dari tatapan pertama hingga ratusan foto di galeri ini...',
-          'Tidak ada kebetulan yang lebih indah selain bertemu denganmu.',
+          'Di antara ratusan foto dan kenangan indah di galeri ini...',
+          'Tidak ada anugerah yang lebih indah selain berjalan bersamamu.',
           'Lihatlah bagaimana titik-titik cahaya itu saling terhubung.',
           'Begitu pula hari-hariku yang menemukan artinya di sisimu.',
           'Tetaplah tersenyum seperti saat amplop kecil ini terbuka.',
@@ -86,8 +86,8 @@ class SoundEngine {
           [50, 54, 57, 66], [69], [67], [66],
         ],
         lyrics: [
-          'Hari demi hari berlalu, berubah menjadi bulan dan tahun...',
-          'Namun debar di dadaku masih sama seperti hari pertama.',
+          'Hari demi hari berlalu, merangkai satu tahun kebersamaan...',
+          'Rasa sayangku padamu selalu tumbuh hangat setiap harinya.',
           'Terima kasih untuk sabarmu, pelukmu, dan semua pengertianmu.',
           'Selamat hari jadi untuk perjalanan yang kita bangun berdua.',
           'Apapun musim yang datang, tanganku akan selalu menggenggammu.',

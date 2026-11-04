@@ -192,10 +192,10 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <h3 className="font-script text-[24px] text-[#5c3138] m-0">
-                      Selamat Ulang Tahun, Sayangku!
+                      Happy 20th Birthday, Sayangku!
                     </h3>
                     <p className="text-[14px] font-medium text-[#5c534c] mt-1 m-0">
-                      4 November · Doa Terbaik Untukmu
+                      4 November · Welcome to Chapter Twenty
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -252,7 +252,7 @@ export function BirthdayCandleSection({ candleBlown, onBlowCandle, onRelightCand
             className="w-full max-w-[540px] bg-[#11131d] p-6 md:p-9 flex flex-col items-center text-center"
           >
             <div className="w-full flex items-center justify-between text-[14px] text-[#d5ccb8] mb-3">
-              <span>4 November · Wish Upon a Star</span>
+              <span>Cheers to Twenty · Wish Upon a Star</span>
               <span className="text-[#f6e2b8]">
                 {candleBlown ? 'Lilin Telah Ditiup' : 'Api Lilin Menyala'}
               </span>

@@ -34,16 +34,16 @@ export function createStarlightPlaceholderSvg(title, constellationName, accentHe
 export const MEMORIES_DATA = [
   {
     id: 'mem-01',
-    title: 'Awal Cerita Kita',
-    date: 'Momen Pertama',
-    location: 'Di Bawah Langit Senja',
-    handwrittenNote: 'Senyummu hari itu masih jadi pemandangan favoritku sampai sekarang.',
+    title: 'Senyum Favoritku',
+    date: 'Momen Manis',
+    location: 'Selalu di Dekatmu',
+    handwrittenNote: 'Senyummu selalu jadi pemandangan paling menenangkan untukku.',
     story:
-      'Masih ingat betapa canggung sekaligus bahagianya kita waktu itu? Dari sekadar obrolan ringan sampai akhirnya kita lupa waktu. Di titik itulah aku sadar, aku ingin terus ada di setiap cerita hidupmu.',
+      'Ada begitu banyak hal indah di dunia ini, tapi melihat kamu tersenyum dari dekat seperti ini selalu menjadi kebahagiaan paling sederhana sekaligus paling berharga di hidupku.',
     rotation: -2.4,
     aspect: 'aspect-[4/5]',
     src: `${baseUrl}/memory-01.jpg`,
-    fallback: createStarlightPlaceholderSvg('Awal Cerita Kita', 'Lyra · Bintang Pertama', '#f6e2b8'),
+    fallback: createStarlightPlaceholderSvg('Senyum Favoritku', 'Lyra · Bintang Hangat', '#f6e2b8'),
   },
   {
     id: 'mem-02',
