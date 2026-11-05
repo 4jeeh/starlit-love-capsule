@@ -1,8 +1,21 @@
-# The Starlit Love Capsule
+<div align="center">
 
-An interactive 20th birthday (**November 4**) and **1st Anniversary** digital time capsule built with React, Vite, Tailwind CSS v4, Framer Motion, and the Web Audio API.
+# 🌌 The Starlit Love Capsule
 
-Designed with a **Midnight Starlight & Champagne Romance** aesthetic, combining 2D character illustrations, tactile analog mechanics, and a strict privacy-first architecture so personal photos never leak to public repositories.
+**An interactive 20th birthday & 1st Anniversary digital time capsule crafted with React 18, Vite 6, and Framer Motion.**
+
+[![React 18](https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![Vite 6](https://img.shields.io/badge/Vite-6.0-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4.0-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.0-FF0055?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
+[![Web Audio API](https://img.shields.io/badge/Audio-Web_Audio_API-F59E0B?style=flat-square)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
+[![License: MIT](https://img.shields.io/badge/License-MIT-10B981?style=flat-square)](./LICENSE)
+
+<p align="center">
+  <em>Designed with a <strong>Midnight Starlight & Champagne Romance</strong> aesthetic, combining 2D character illustrations, tactile analog mechanics, and a strict privacy-first architecture.</em>
+</p>
+
+</div>
 
 ---
 
